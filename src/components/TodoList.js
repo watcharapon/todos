@@ -6,7 +6,7 @@ const TodoList = ({ todos, onTodoClick, deleteTodoClick }) => (
   <div>
   <table className="table table-hover">
       <tbody>
-      {todos.sort((a,b)=> a.id < b.id).map(todo =>
+      {todos.sort((a,b)=> a.create_date < b.create_date).map(todo =>
       <Todo
         key={todo.id}
         {...todo}

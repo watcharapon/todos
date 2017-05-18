@@ -1,11 +1,13 @@
 import moment from 'moment'
 
-let nextTodoId = 0
+/*let nextTodoId = 0*/
+const redix=10; //the radix is 10 (decimal) 
 export const addTodo = (text) => ({
   type: 'ADD_TODO',
-  id: nextTodoId++,
+  //id: nextTodoId++,
+  id: parseInt(moment().format("YYYYMMDDhmmSS"),redix),
   create_date: moment().format('YYYY-MM-DD h:mm:ss'),
-  write_date: null,
+  write_date: moment().format('YYYY-MM-DD h:mm:ss'),
   text
 })
 

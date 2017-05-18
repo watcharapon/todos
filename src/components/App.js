@@ -1,5 +1,4 @@
 import React from 'react'
-import Header from './Header'
 import Title from './Title'
 import AddTodo from '../containers/AddTodo'
 import VisibleTodoList from '../containers/VisibleTodoList'
