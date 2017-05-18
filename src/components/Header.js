@@ -3,7 +3,7 @@ import FilterLink from '../containers/FilterLink'
 
 const Header = () => (
   <h2>
-      Remainders
+      Reminders
   </h2>
 )
 
