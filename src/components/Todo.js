@@ -1,8 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import moment from 'moment'
+const fmtDate="YYYY-MM-DD h:mm:ss"
 
-
-const Todo = ({ onClick, onDelete, completed, text }) => (
+const Todo = ({ onClick, onDelete, completed, create_date, text }) => (
   <tr>
       <td style={{width:10}}>
         <div className="checkbox" style={{margin:0}}>
@@ -13,7 +14,7 @@ const Todo = ({ onClick, onDelete, completed, text }) => (
       </td>
       <td>
         <p style={{margin:0, textDecoration: completed ? 'line-through' : 'none' }}>{text}</p>
-        <p className="todo-time" style={{margin:0, color:"#dbdbdb"}}><small> Today 11:00 PM </small></p>
+        <p className="todo-time" style={{margin:0, color:"#dbdbdb"}}><small>{moment(create_date, fmtDate).calendar()} </small></p>
     </td>
     <td style={{width:10}}>
         <a href="#">

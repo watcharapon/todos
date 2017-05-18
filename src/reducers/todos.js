@@ -4,6 +4,8 @@ const todo = (state, action) => {
       return {
         id: action.id,
         text: action.text,
+        create_date: action.create_date,
+        write_date: action.write_date,
         completed: false
       }
     case 'DELETE_TODO':
