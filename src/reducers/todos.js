@@ -8,6 +8,11 @@ const todo = (state, action) => {
         write_date: action.write_date,
         completed: false
       }
+    case 'UPDATE_TODO':
+      return {
+        text: action.text,
+        write_date: action.write_date,
+      }
     case 'DELETE_TODO':
         return state.id !== action.id
 
@@ -28,6 +33,11 @@ const todo = (state, action) => {
 const todos = (state = [], action) => {
   switch (action.type) {
     case 'ADD_TODO':
+      return [
+        ...state,
+        todo(undefined, action)
+      ]
+    case 'UPDATE_TODO':
       return [
         ...state,
         todo(undefined, action)

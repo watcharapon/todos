@@ -3,7 +3,7 @@ import React from 'react'
 const Title = () => (
     <center>
         <h1>
-              TODO LIST
+              Reminders
         </h1>
     </center>
 )

@@ -3,18 +3,18 @@ import PropTypes from 'prop-types'
 import moment from 'moment'
 const fmtDate="YYYY-MM-DD h:mm:ss"
 
-const Todo = ({ onClick, onDelete, completed, create_date, text }) => (
+const Todo = ({ onClick, onDelete, completed, write_date, text }) => (
   <tr>
       <td style={{width:10}}>
         <div className="checkbox" style={{margin:0}}>
           <label>
-              {completed ?  <input type="checkbox" value="" onClick={onClick}/> : <input type="checkbox" onClick={onClick} value=""/> }
+              {completed ?  <input type="checkbox" checked value="" onClick={onClick}/> : <input type="checkbox" onClick={onClick} value=""/> }
             </label>
         </div>
       </td>
       <td>
         <p style={{margin:0, textDecoration: completed ? 'line-through' : 'none' }}>{text}</p>
-        <p className="todo-time" style={{margin:0, color:"#dbdbdb"}}><small>{moment(create_date, fmtDate).calendar()} </small></p>
+        <p className="todo-time" style={{margin:0, color:"#dbdbdb"}}><small>{moment(write_date, fmtDate).calendar()} </small></p>
     </td>
     <td style={{width:10}}>
         <a href="#">

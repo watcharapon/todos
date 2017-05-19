@@ -11,6 +11,12 @@ export const addTodo = (text) => ({
   text
 })
 
+export const updateTodo = (text) => ({
+  type: 'UPDATE_TODO',
+  write_date: moment().format('YYYY-MM-DD h:mm:ss'),
+  text
+})
+
 export const setVisibilityFilter = (filter) => ({
   type: 'SET_VISIBILITY_FILTER',
   filter
