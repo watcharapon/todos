@@ -2,9 +2,9 @@ import React from 'react'
 
 const Title = () => (
     <center>
-        <h1>
-              TODO
-        </h1>
+        <p style={{fontSize:70, color:"#b6b6b6"}}>
+            TODO
+        </p>
     </center>
 )
 

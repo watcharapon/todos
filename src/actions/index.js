@@ -8,6 +8,7 @@ export const addTodo = (title) => ({
   id: parseInt(moment().format("YYYYMMDDhmmSS"),redix),
   create_date: moment().format('YYYY-MM-DD h:mm:ss'),
   write_date: moment().format('YYYY-MM-DD h:mm:ss'),
+  description: "",
   title
 })
 

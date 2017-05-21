@@ -1,4 +1,4 @@
-# ---- * Todos * -----
+# TODO list web application
 
 ### to run application please follow instruction below:
 
