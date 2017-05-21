@@ -3,16 +3,24 @@ const todo = (state, action) => {
     case 'ADD_TODO':
       return {
         id: action.id,
-        text: action.text,
+        title: action.title,
+        description: action.description,
         create_date: action.create_date,
         write_date: action.write_date,
         completed: false
       }
     case 'UPDATE_TODO':
+      if (state.id !== action.id) {
+        return state
+      }
+        console.log('yes ')
       return {
-        text: action.text,
+        ...state,
+        title: action.title,
+        description: action.description,
         write_date: action.write_date,
       }
+
     case 'DELETE_TODO':
         return state.id !== action.id
 
@@ -38,10 +46,9 @@ const todos = (state = [], action) => {
         todo(undefined, action)
       ]
     case 'UPDATE_TODO':
-      return [
-        ...state,
-        todo(undefined, action)
-      ]
+      return state.map(t =>
+        todo(t, action)
+      )
     case 'DELETE_TODO':
       return state.filter(t =>
         todo(t, action)

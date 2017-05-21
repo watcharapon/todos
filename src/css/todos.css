@@ -1,0 +1,9 @@
+table.table-todos tr td a { display:none;}
+table.table-todos tr:hover td a { display:inline-block;}
+
+/*table.table-todos tr td p.todo-time { display:none;}*/
+/*table.table-todos tr:hover td p.todo-time { display:inline-block;}*/
+.todos-readonly {
+    background-color: #f5f5f5;
+}
+

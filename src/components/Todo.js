@@ -9,18 +9,34 @@ class Todo extends React.Component {
         super(props);
         this.state={
             isEdit: false,
-			value: this.props.text,
+			title: this.props.title,
+			description: this.props.description,
+            isDone: this.props.completed,
         }
         this.onEditClick = this.onEditClick.bind(this);
         this.onCancelClick = this.onCancelClick.bind(this);
-        this.handlerText = this.handlerText.bind(this);
+        this.onSaveClick = this.onSaveClick.bind(this);
+        this.handlerDescription = this.handlerDescription.bind(this);
+        this.handlerTitle = this.handlerTitle.bind(this);
     }
 
     onEditClick(e){
+        /*
+        if(this.state.isDone){
+            alert("Can not edit!!");
+            return
+        }
+        */
         this.setState({
             isEdit: true
         })
     }
+
+    onSaveClick(e){
+        this.props.onUpdate(this.props.id, this.state.title, this.state.description);
+        this.onCancelClick(e);
+    }
+
 
     onCancelClick(e){
         this.setState({
@@ -28,9 +44,15 @@ class Todo extends React.Component {
         })
     }
 
-	handlerText(e){
+	handlerTitle(e){
 		this.setState({
-			value: e.target.value
+			title: e.target.value
+		})
+	}
+
+	handlerDescription(e){
+		this.setState({
+			description: e.target.value
 		})
 	}
 
@@ -41,13 +63,28 @@ class Todo extends React.Component {
                     <td colSpan={4}>
                       	<form>
 						  <div className="form-group">
-							<input type="text" className="form-control" onChange={this.handlerText} value={this.state.value}/>
+							<label>Task ID </label>
+							<span style={{marginLeft: 10}}>{(this.props.id)}</span>
 						  </div>
 						  <div className="form-group">
-							<label>Create Date </label>
-							<span style={{marginLeft: 10}}>{this.props.create_date}</span>
+							  <label>Title</label>
+                              <input type="text" className="form-control" onChange={this.handlerTitle} defaultValue={this.state.title}/>
 						  </div>
-						  <button type="submit" className="btn btn-success">Save</button>
+						  <div className="form-group">
+							  <label>Description</label>
+                              <textarea className="form-control" onChange={this.handlerDescription} defaultValue={this.state.description}/>
+						  </div>
+						  <div className="form-group">
+                            <div>
+                                <span style={{paddingRight: 20}}>
+                                    Created Time: <span style={{marginLeft: 10}}>{this.props.create_date}</span>
+                                </span>
+                                <span style={{paddingRight: 20}}>
+                                    Writed Time: <span style={{marginLeft: 10}}>{this.props.write_date}</span>
+                                </span>
+                            </div>
+						  </div>
+                          <button type="button" className="btn btn-success" onClick={this.onSaveClick}>Save</button>
 						  <button className="btn btn-default pull-right" onClick={this.onCancelClick}>Cancel</button>
 					   </form>  
                     </td>
@@ -64,7 +101,8 @@ class Todo extends React.Component {
                     </div>
                     </td>
                     <td>
-                        <p style={{margin:0, textDecoration: this.props.completed ? 'line-through' : 'none' }}>{this.props.text}</p>
+                        <p style={{fontSize: 17, margin:0, textDecoration: this.props.completed ? 'line-through' : 'none' }}>{this.props.title}</p>
+                        <p style={{margin:0, textDecoration: this.props.completed ? 'line-through' : 'none' }}><small>{this.props.description}</small></p>
                         <p className="todo-time" style={{margin:0, color:"#dbdbdb"}}><small>{moment(this.props.write_date, fmtDate).calendar()} </small></p>
                     </td>
                     <td style={{width:10}}>
@@ -88,8 +126,10 @@ class Todo extends React.Component {
 Todo.propTypes = {
   onClick: PropTypes.func.isRequired,
   onDelete: PropTypes.func.isRequired,
+  onUpdate: PropTypes.func.isRequired,
   completed: PropTypes.bool.isRequired,
-  text: PropTypes.string.isRequired
+  title: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired
 }
 
 export default Todo
