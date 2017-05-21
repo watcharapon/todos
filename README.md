@@ -1,9 +1,9 @@
 # Todos
 
-## `npm install`
+## npm install
 
 
-## `npm start
+## npm start
 
 ## localhost:3000
 
