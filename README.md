@@ -1,10 +1,8 @@
-# Todos
+# ---- * Todos * -----
 
-## npm install
+### to run application please follow instruction below:
 
-
-## npm start
-
-## localhost:3000
-
+1. npm install
+2. npm start
+3. localhost:3000
 
