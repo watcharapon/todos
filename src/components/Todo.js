@@ -75,13 +75,23 @@ class Todo extends React.Component {
                               <textarea className="form-control" onChange={this.handlerDescription} defaultValue={this.state.description}/>
 						  </div>
 						  <div className="form-group">
-                            <div>
-                                <span style={{paddingRight: 20}}>
-                                    Created Time: <span style={{marginLeft: 10}}>{this.props.create_date}</span>
-                                </span>
-                                <span style={{paddingRight: 20}}>
-                                    Writed Time: <span style={{marginLeft: 10}}>{this.props.write_date}</span>
-                                </span>
+                            <div className="row">
+                                <div className="col-sm-6">
+                                    <div className="col-sm-6" style={{paddingLeft:0}}>
+                                        <label>Created Time:</label>
+                                    </div>
+                                    <div className="col-sm-6" style={{paddingLeft:0}}>
+                                        {this.props.create_date}
+                                    </div>
+                                </div>
+                                <div className="col-sm-6">
+                                    <div className="col-sm-6" style={{paddingLeft:0}}>
+                                        <label>Writed Time:</label>
+                                    </div>
+                                    <div className="col-sm-6" style={{paddingLeft:0}}>
+                                        {this.props.write_date}
+                                    </div>
+                                </div>
                             </div>
 						  </div>
                           <button type="button" className="btn btn-success" onClick={this.onSaveClick}>Save</button>
@@ -100,17 +110,17 @@ class Todo extends React.Component {
                         </label>
                     </div>
                     </td>
-                    <td>
+                    <td style={{borderRight:'none'}}>
                         <p style={{fontSize: 17, margin:0, textDecoration: this.props.completed ? 'line-through' : 'none' }}>{this.props.title}</p>
                         <p style={{margin:0, textDecoration: this.props.completed ? 'line-through' : 'none' }}><small>{this.props.description}</small></p>
                         <p className="todo-time" style={{margin:0, color:"#dbdbdb"}}><small>{moment(this.props.write_date, fmtDate).calendar()} </small></p>
                     </td>
-                    <td style={{width:10}}>
+                    <td style={{width:10, borderLeft:'none', borderRight:'none'}}>
                         <a href="#" onClick={this.onEditClick}>
                             <span className="glyphicon glyphicon-pencil"></span>
                         </a>
                     </td>
-                    <td style={{width:10}}>
+                    <td style={{width:10, borderLeft:'none'}}>
                         <a href="#" onClick={() => {if(confirm('Delete the item?')) {this.props.onDelete()};}}>
                             <span className="text-danger glyphicon glyphicon-trash"></span>
                         </a>

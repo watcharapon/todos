@@ -4,7 +4,7 @@ import Todo from './Todo'
 
 const TodoList = ({ todos, onTodoClick, deleteTodoClick, updateTodoClick }) => (
   <div>
-  <table className="table table-hover table-todos">
+  <table className="table table-hover table-bordered table-todos">
       <tbody>
       {todos.sort((a,b)=> a.create_date < b.create_date).map(todo =>
       <Todo
