@@ -3,7 +3,7 @@
 ## To run application please follow instruction below:
 
 ### Linux / Unbuntu
-1. git clone git@github.com:watcharapon/todos.git
+1. git clone https://github.com/watcharapon/todos.git
 2. cd todos
 3. npm install
 4. npm start

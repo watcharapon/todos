@@ -21,12 +21,6 @@ class Todo extends React.Component {
     }
 
     onEditClick(e){
-        /*
-        if(this.state.isDone){
-            alert("Can not edit!!");
-            return
-        }
-        */
         this.setState({
             isEdit: true
         })
@@ -110,13 +104,13 @@ class Todo extends React.Component {
                         </label>
                     </div>
                     </td>
-                    <td style={{borderRight:'none'}}>
+                    <td style={{borderRight:'none'}} onClick={this.onEditClick}>
                         <p style={{fontSize: 17, margin:0, textDecoration: this.props.completed ? 'line-through' : 'none' }}>{this.props.title}</p>
                         <p style={{margin:0, textDecoration: this.props.completed ? 'line-through' : 'none' }}><small>{this.props.description}</small></p>
                         <p className="todo-time" style={{margin:0, color:"#dbdbdb"}}><small>{moment(this.props.write_date, fmtDate).calendar()} </small></p>
                     </td>
-                    <td style={{width:10, borderLeft:'none', borderRight:'none'}}>
-                        <a href="#" onClick={this.onEditClick}>
+                    <td style={{width:10, borderLeft:'none', borderRight:'none',}}>
+                        <a href="#" onClick={this.onEditClick} style={{verticalAlign: "text-bottom"}}>
                             <span className="glyphicon glyphicon-pencil"></span>
                         </a>
                     </td>
